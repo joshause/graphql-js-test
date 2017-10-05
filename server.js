@@ -32,12 +32,12 @@ const petType = new graphql.GraphQLObjectType({
     species: {
       type: graphql.GraphQLString,
       resolve(pet) {
-        let foo = ''
-        species.forEach(function(i) {
-          if (i.id == pet.speciesId) {
+        let foo
+        for (let i of species) {
+          if (i.id === pet.speciesId) {
             foo = i.name
           }
-        })
+        }
         return foo
       }
     }
